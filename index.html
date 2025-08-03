@@ -302,12 +302,12 @@ def calculate_risk():
 
     output = f"""
         <ul>
-            <li><b>Age Influence:</b> {age_infl:.2f}</li>
-            <li><b>Glucose Influence:</b> {glucose_infl:.2f}</li>
-            <li><b>HbA1c Influence:</b> {hba1c_infl:.2f}</li>
-            <li><b>BMI Influence:</b> {bmi_infl:.2f}</li>
-            <li><b>Hypertension Influence:</b> {hypertension_infl:.2f}</li>
-            <li><b>Heart Disease Influence:</b> {heart_infl:.2f}</li>
+            <li><b>Age Influence:</b> {age_influence:.2f}</li>
+            <li><b>Glucose Influence:</b> {glucose_influence:.2f}</li>
+            <li><b>HbA1c Influence:</b> {hba1c_influence:.2f}</li>
+            <li><b>BMI Influence:</b> {bmi_influence:.2f}</li>
+            <li><b>Hypertension Influence:</b> {hypertension_influence:.2f}</li>
+            <li><b>Heart Disease Influence:</b> {heart_influence:.2f}</li>
         </ul>
     """
     Element("result").write(output)
