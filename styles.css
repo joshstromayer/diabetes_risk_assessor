@@ -271,6 +271,18 @@ img{
     font-family: 'Times New Roman', Times, serif;
 
     text-align: left;
+
+#tool{
+    scroll-margin-top: 25px;
+}
+
+#risks{
+    scroll-margin-top: 25px;
+}
+
+#contact{
+    scroll-margin-top: 25px;
+}
     justify-content: center;
     padding-left: 15px;
     line-height: 20px;
