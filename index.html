@@ -100,12 +100,12 @@
         Do you have a history of high blood pressure?*
         <br>
         <label>
-        <input type="radio" name="choice">
+        <input type="radio" name="hypertension" id="hypertension_yes">
         Yes
         </label>
 
         <label>
-        <input type="radio" name="choice">
+        <input type="radio" name="hypertension" id="hypertesion_no">
         No
         </label>
         </div>
@@ -115,12 +115,12 @@
         Do you have a history of any heart disease?*
         <br>
         <label>
-        <input type="radio" name="choice">
+        <input type="radio" name="heartdisease" id="heartdisease_yes">
         Yes
         </label>
     
         <label>
-        <input type="radio" name="choice">
+        <input type="radio" name="heartdisease" id="heartdisease_no">
         No
         </label>
         </form>
@@ -433,7 +433,7 @@ def calculate_risk():
             <li><b>HbA1c Influence:</b> {hba1c_influence:.2f}</li>
             <li><b>BMI Influence:</b> {bmi_influence:.2f}</li>
             <li><b>Hypertension Influence:</b> {hypertension_influence:.2f}</li>
-            <li><b>Heart Disease Influence:</b> {heart_influence:.2f}</li>
+            <li><b>Heart Disease Influence:</b> {heart_disease_influence:.2f}</li>
         </ul>
     """
     Element("result").write(output)
