@@ -67,71 +67,44 @@
     <br>
 
 <div id="calc">
-        <form id="risk-form">
-        <div class="question">
-        <label for="age">
-        What is your age?*
-        </label> <br>
-        <input type="text" name="age" id="age" placeholder="e.g. 22">
-        </div>
+  <form id="risk-form">
+    <div class="question">
+      <label for="age">What is your age?*</label><br>
+      <input type="text" name="age" id="age" placeholder="e.g. 22">
+    </div>
 
-        <div class="question">
-        <label for="bglevels">
-        What is your blood glucose levels? (mg/dL)*
-        </label> <br>
-        <input type="text" name="bglevels" id="bglevels" placeholder="e.g. 94">
-        </div>
+    <div class="question">
+      <label for="bglevels">What is your blood glucose level? (mg/dL)*</label><br>
+      <input type="text" name="bglevels" id="bglevels" placeholder="e.g. 94">
+    </div>
 
-        <div class="question">
-        <label for="hba1c">
-        What is your hba1c levels? (%)
-        </label> <br>
-        <input type="text" name="hba1c" id="hba1c" placeholder="e.g. 6.4">
-        </div>
+    <div class="question">
+      <label for="hba1c">What is your HbA1c level? (%)*</label><br>
+      <input type="text" name="hba1c" id="hba1c" placeholder="e.g. 6.4">
+    </div>
 
-        <div class="question">
-        <label for="bmi">
-        What is your BMI?*
-        </label> <br>
-        <input type="text" name="bmi" id="bmi" placeholder="e.g. 23.8">
-        </div>
+    <div class="question">
+      <label for="bmi">What is your BMI?*</label><br>
+      <input type="text" name="bmi" id="bmi" placeholder="e.g. 23.8">
+    </div>
 
-        <div class="question">
-        <label for="hypertension">
-        Do you have a history of high blood pressure?*
-        <br>
-        <label>
-        <input type="radio" name="hypertension" id="hypertension_yes">
-        Yes
-        </label>
+    <div class="question">
+      <label>Do you have a history of high blood pressure?*</label><br>
+      <label><input type="radio" name="hypertension" id="hypertension_yes"> Yes</label>
+      <label><input type="radio" name="hypertension" id="hypertension_no"> No</label>
+    </div>
 
-        <label>
-        <input type="radio" name="hypertension" id="hypertension_no">
-        No
-        </label>
-        </div>
-    
-        <div class="question">
-        <label for="heartdisease">
-        Do you have a history of any heart disease?*
-        <br>
-        <label>
-        <input type="radio" name="heartdisease" id="heartdisease_yes">
-        Yes
-        </label>
-    
-        <label>
-        <input type="radio" name="heartdisease" id="heartdisease_no">
-        No
-        </label>
-        </form>
+    <div class="question">
+      <label>Do you have a history of any heart disease?*</label><br>
+      <label><input type="radio" name="heartdisease" id="heartdisease_yes"> Yes</label>
+      <label><input type="radio" name="heartdisease" id="heartdisease_no"> No</label>
+    </div>
+  </form>
 
-        <br>
-        <br>
+  <!-- Submit button goes outside the form -->
+  <button py-click="calculate_risk()">Submit</button>
+</div>
 
-        <button py-click="calculate_risk()">Submit</button>
-
-        </div>
         
         
 <br>
