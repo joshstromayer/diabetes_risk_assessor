@@ -273,17 +273,17 @@
 
 
 <py-script>
-from pyscript import Element
+from js import Document
 
 def calculate_risk():
     weights = [-2.7712316300109996, 0.3736056292375291, 0.17017502955278827, 0.13284791943046084, 0.2935345127870824, 0.8705724154641168]
     
-    user_age = float(Element("age").element.value)
-    user_hypertension = 1 if Element("hypertension_yes").element.checked else 0
-    user_heart_disease = 1 if Element("heartdisease").element.checked else 0
-    user_bmi = float(Element("bmi").element.value)
-    user_hba1c = float(Element("hba1c").element.value)
-    user_glucose = float(Element("bglevels").element.value)
+    user_age = int(document.getElementById("age").value)
+    user_hypertension = 1 if document.getElementById("hypertension_yes").checked else 0
+    user_heart_disease = 1 if document.getElementById("heartdisease").checked else 0
+    user_bmi = int(document.getElementById("bmi").value)
+    user_hba1c = int(document.getElementById("hba1c").value)
+    user_glucose = int(document.getElementById("bglevels").value)
     
     influences = [0] * 6
     
@@ -437,7 +437,7 @@ def calculate_risk():
             <li><b>Heart Disease Influence:</b> {heart_disease_influence:.2f}</li>
         </ul>
     """
-    Element("result").write(output)
+document.getElementById("result").innerHTML = output
 
 </py-script>
     
