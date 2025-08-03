@@ -146,157 +146,160 @@
 </div>
 
 <py-script>
-weights = [-2.7712316300109996, 0.3736056292375291, 0.17017502955278827, 0.13284791943046084, 0.2935345127870824, 0.8705724154641168]
+from pyscript import Element
 
-user_age = 66
-user_hypertension = 1
-user_heart_disease = 1
-user_bmi = 32.1
-user_hba1c = 7.2
-user_glucose = 174
-
-influences = [0] * 6
-
-influence_statuses = {
-    "age_status": "NA",
-    "hypertension_status": "NA",
-    "heart_disease_status": "NA",
-    "bmi_status": "NA",
-    "hba1c_status": "NA",
-    "glucose_status": "NA",
-}
-
-influence_scores = {
-    "age_score": 0,
-    "hypertension_score": 0,
-    "heart_disease_score": 0,
-    "bmi_score": 0,
-    "hba1c_score": 0,
-    "glucose_score": 0,
-}
-
-status_keys = ["age_status", "hypertension_status", "heart_disease_status", "bmi_status", "hba1c_status", "glucose_status"]
-
-score_keys = ["age_score", "hypertension_score", "heart_disease_score", "bmi_score", "hba1c_score", "glucose_score"]
-
-
-bmi_lower_bound = 18.5
-bmi_upper_bound = 24.9
-
-#1. influence for age 
-delta = (user_age - 30) / 30
-age_influence = delta * weights[0] * 1000 * 0.5
-age_influence = round(age_influence, 2)
-influences[0] = age_influence
-
-#2. influence for hypertension
-if user_hypertension == 1:
-    hypertension_influence = weights[1] * 1000 * 0.5
-else: 
-    hypertension_influence = 0
-hypertension_influence = round(hypertension_influence, 2)
-influences[1] = hypertension_influence
-
-#3. influence for heart disease
-if user_heart_disease == 1:
-    heart_disease_influence = weights[2] * 1000 * 0.5
-elif user_heart_disease == 0: 
-    heart_disease_influence = 0
-heart_disease_influence = round(heart_disease_influence, 2)
-influences[2] = heart_disease_influence
-
-#4. influence for bmi
-if user_bmi > bmi_upper_bound:
-    alpha = (user_bmi - bmi_upper_bound) / bmi_upper_bound
-    bmi_influence = weights[3] * alpha * 1000
-
-elif user_bmi < bmi_lower_bound:
-    alpha = (bmi_lower_bound - user_bmi) / bmi_lower_bound
-    bmi_influence = weights[3] * alpha * 1000
-
-else: 
-    bmi_influence = 0
-bmi_influence = round(bmi_influence, 2)
-influences[3] = bmi_influence
-
-#5. influence for blood glucose levels
-if user_glucose > 126:
-    beta = (user_glucose - 100)/ 126
-    glucose_influence = weights[5] * beta * 1000
-
-elif user_glucose > 100 and user_glucose <= 126:
-    beta = (user_glucose - 100) / 126
-    glucose_influence = weights[5] * beta * 0.8 * 1000
-
-elif user_glucose > 70 and user_glucose <= 100:
-        glucose_influence = 0
-
-elif user_glucose <= 70:
-    beta = (70 - user_glucose) / 70
-    glucose_influence = weights[5] * beta * 1000
-glucose_influence = round(glucose_influence, 2)
-influences[5] = glucose_influence
-
-#6. influence for hba1c levels
-if user_hba1c > 6.4:
-    charlie = (user_hba1c - 5.7) / 6.4
-    hba1c_influence = weights[4] * charlie * 1000
-
-elif user_hba1c >= 5.7 and user_hba1c <= 6.4:
-    charlie = (user_hba1c - 5.7) / 6.4
-    hba1c_influence = weights[4] * charlie * 0.8 * 1000
-
-elif user_hba1c < 5.7:
-    hba1c_influence = 0
-hba1c_influence = round(hba1c_influence, 2)
-influences[4] = hba1c_influence
-
-
-total_influence = age_influence + glucose_influence + bmi_influence + hba1c_influence + heart_disease_influence + hypertension_influence
-age_influence_percentage = age_influence/total_influence * 100
-glucose_influence_percentage = glucose_influence/total_influence * 100
-bmi_influence_percentage = bmi_influence/total_influence * 100
-hba1c_influence_percentage = hba1c_influence/total_influence * 100
-heart_disease_percentage = heart_disease_influence/total_influence * 100
-hypertension_percentage = hypertension_influence/total_influence * 100
-
-for i in range(len(influences)):
-    if influences[i] > 45:
-        status = "Extreme"
-        score = "10/10"
-    elif influences[i] > 40:
-        status = "Extreme"
-        score = "9/10"
-    elif influences[i] > 35:
-        status = "High"
-        score = "8/10"
-    elif influences[i] > 30:
-        status = "High"
-        score = "7/10"
-    elif influences[i] > 25: 
-        status = "Moderate"
-        score = "6/10"
-    elif influences[i] > 20: 
-        status = "Moderate"
-        score = "5/10"
-    elif influences[i] > 15:
-        status = "Moderate"
-        score = "4/10"
-    elif influences[i] >= 10:
-        status = "Moderate/Low"
-        score = "3/10"
-    elif influences[i] >= 6 and influences[i] < 10:
-        status = "Low"
-        score = "2/10"
-    elif influences[i] >= 3 and influences[i] < 6:
-        status = "Low"
-        score = "1/10"
-    else:
-        status = "No"
-        score = "0/10"
-    influence_statuses[status_keys[i]] = status
-    influence_scores[score_keys[i]] = score
+def calculate_risk():
+    weights = [-2.7712316300109996, 0.3736056292375291, 0.17017502955278827, 0.13284791943046084, 0.2935345127870824, 0.8705724154641168]
     
+    user_age = float(Element("age").element.value)
+    user_hypertension = 1 if Element("hypertension_yes").element.checked else 0
+    user_heart_disease = 1 if Element("heartdisease").element.checked else 0
+    user_bmi = float(Element("bmi").element.value)
+    user_hba1c = float(Element("hba1c").element.value)
+    user_glucose = float(Element("bglevels").element.value)
+    
+    influences = [0] * 6
+    
+    influence_statuses = {
+        "age_status": "NA",
+        "hypertension_status": "NA",
+        "heart_disease_status": "NA",
+        "bmi_status": "NA",
+        "hba1c_status": "NA",
+        "glucose_status": "NA",
+    }
+    
+    influence_scores = {
+        "age_score": 0,
+        "hypertension_score": 0,
+        "heart_disease_score": 0,
+        "bmi_score": 0,
+        "hba1c_score": 0,
+        "glucose_score": 0,
+    }
+    
+    status_keys = ["age_status", "hypertension_status", "heart_disease_status", "bmi_status", "hba1c_status", "glucose_status"]
+    
+    score_keys = ["age_score", "hypertension_score", "heart_disease_score", "bmi_score", "hba1c_score", "glucose_score"]
+    
+    
+    bmi_lower_bound = 18.5
+    bmi_upper_bound = 24.9
+    
+    #1. influence for age 
+    delta = (user_age - 30) / 30
+    age_influence = delta * weights[0] * 1000 * 0.5
+    age_influence = round(age_influence, 2)
+    influences[0] = age_influence
+    
+    #2. influence for hypertension
+    if user_hypertension == 1:
+        hypertension_influence = weights[1] * 1000 * 0.5
+    else: 
+        hypertension_influence = 0
+    hypertension_influence = round(hypertension_influence, 2)
+    influences[1] = hypertension_influence
+    
+    #3. influence for heart disease
+    if user_heart_disease == 1:
+        heart_disease_influence = weights[2] * 1000 * 0.5
+    elif user_heart_disease == 0: 
+        heart_disease_influence = 0
+    heart_disease_influence = round(heart_disease_influence, 2)
+    influences[2] = heart_disease_influence
+    
+    #4. influence for bmi
+    if user_bmi > bmi_upper_bound:
+        alpha = (user_bmi - bmi_upper_bound) / bmi_upper_bound
+        bmi_influence = weights[3] * alpha * 1000
+    
+    elif user_bmi < bmi_lower_bound:
+        alpha = (bmi_lower_bound - user_bmi) / bmi_lower_bound
+        bmi_influence = weights[3] * alpha * 1000
+    
+    else: 
+        bmi_influence = 0
+    bmi_influence = round(bmi_influence, 2)
+    influences[3] = bmi_influence
+    
+    #5. influence for blood glucose levels
+    if user_glucose > 126:
+        beta = (user_glucose - 100)/ 126
+        glucose_influence = weights[5] * beta * 1000
+    
+    elif user_glucose > 100 and user_glucose <= 126:
+        beta = (user_glucose - 100) / 126
+        glucose_influence = weights[5] * beta * 0.8 * 1000
+    
+    elif user_glucose > 70 and user_glucose <= 100:
+            glucose_influence = 0
+    
+    elif user_glucose <= 70:
+        beta = (70 - user_glucose) / 70
+        glucose_influence = weights[5] * beta * 1000
+    glucose_influence = round(glucose_influence, 2)
+    influences[5] = glucose_influence
+    
+    #6. influence for hba1c levels
+    if user_hba1c > 6.4:
+        charlie = (user_hba1c - 5.7) / 6.4
+        hba1c_influence = weights[4] * charlie * 1000
+    
+    elif user_hba1c >= 5.7 and user_hba1c <= 6.4:
+        charlie = (user_hba1c - 5.7) / 6.4
+        hba1c_influence = weights[4] * charlie * 0.8 * 1000
+    
+    elif user_hba1c < 5.7:
+        hba1c_influence = 0
+    hba1c_influence = round(hba1c_influence, 2)
+    influences[4] = hba1c_influence
+    
+    
+    total_influence = age_influence + glucose_influence + bmi_influence + hba1c_influence + heart_disease_influence + hypertension_influence
+    age_influence_percentage = age_influence/total_influence * 100
+    glucose_influence_percentage = glucose_influence/total_influence * 100
+    bmi_influence_percentage = bmi_influence/total_influence * 100
+    hba1c_influence_percentage = hba1c_influence/total_influence * 100
+    heart_disease_percentage = heart_disease_influence/total_influence * 100
+    hypertension_percentage = hypertension_influence/total_influence * 100
+    
+    for i in range(len(influences)):
+        if influences[i] > 45:
+            status = "Extreme"
+            score = "10/10"
+        elif influences[i] > 40:
+            status = "Extreme"
+            score = "9/10"
+        elif influences[i] > 35:
+            status = "High"
+            score = "8/10"
+        elif influences[i] > 30:
+            status = "High"
+            score = "7/10"
+        elif influences[i] > 25: 
+            status = "Moderate"
+            score = "6/10"
+        elif influences[i] > 20: 
+            status = "Moderate"
+            score = "5/10"
+        elif influences[i] > 15:
+            status = "Moderate"
+            score = "4/10"
+        elif influences[i] >= 10:
+            status = "Moderate/Low"
+            score = "3/10"
+        elif influences[i] >= 6 and influences[i] < 10:
+            status = "Low"
+            score = "2/10"
+        elif influences[i] >= 3 and influences[i] < 6:
+            status = "Low"
+            score = "1/10"
+        else:
+            status = "No"
+            score = "0/10"
+        influence_statuses[status_keys[i]] = status
+        influence_scores[score_keys[i]] = score
+        
 
 
 </py-script>
