@@ -299,10 +299,23 @@ def calculate_risk():
             score = "0/10"
         influence_statuses[status_keys[i]] = status
         influence_scores[score_keys[i]] = score
-        
 
+    output = f"""
+        <ul>
+            <li><b>Age Influence:</b> {age_infl:.2f}</li>
+            <li><b>Glucose Influence:</b> {glucose_infl:.2f}</li>
+            <li><b>HbA1c Influence:</b> {hba1c_infl:.2f}</li>
+            <li><b>BMI Influence:</b> {bmi_infl:.2f}</li>
+            <li><b>Hypertension Influence:</b> {hypertension_infl:.2f}</li>
+            <li><b>Heart Disease Influence:</b> {heart_infl:.2f}</li>
+        </ul>
+    """
+    Element("result").write(output)
 
 </py-script>
+
+    <div id="result" style="margin-top: 20px; font-weight: bold;"></div>
+
     
     <div id="p4">
     <h2 class="subhead" id="risks">What are the risk factors?</h2>
