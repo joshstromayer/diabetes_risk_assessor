@@ -113,12 +113,12 @@ function calculateRisk() {
     // Output to page
     document.getElementById("result").innerHTML = `
         <ul>
-            <li><b>Age Influence:</b> ${ageInfluence}</li>
-            <li><b>Glucose Influence:</b> ${glucoseInfluence}</li>
-            <li><b>HbA1c Influence:</b> ${hba1cInfluence}</li>
-            <li><b>BMI Influence:</b> ${bmiInfluence}</li>
-            <li><b>Hypertension Influence:</b> ${hypertensionInfluence}</li>
-            <li><b>Heart Disease Influence:</b> ${heartDiseaseInfluence}</li>
+            <li><b>Age Influence:</b> ${influenceStatuses[statusKeys[0]]}</li>
+            <li><b>Glucose Influence:</b> ${influenceStatuses[statusKeys[1]]}</li>
+            <li><b>HbA1c Influence:</b> ${influenceStatuses[statusKeys[2]]}</li>
+            <li><b>BMI Influence:</b> ${influenceStatuses[statusKeys[3]]}</li>
+            <li><b>Hypertension Influence:</b> ${influenceStatuses[statusKeys[4]]}</li>
+            <li><b>Heart Disease Influence:</b> ${influenceStatuses[statusKeys[5]]}</li>
         </ul>
     `;
 }
