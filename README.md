@@ -3,7 +3,7 @@ A simple model to inform users on the associated risk that their demographic and
 
 ## Description
 
-There are many factors that can effect the development of diabetes, each with unique contribution. Creating a model that simply predicts whether or not one may have diabetes may be problematic. A classification as simple as "Yes" or "No" could be missleading, in reference to the accuracy of the classification, and one's risk of developing diabetes. Popular models tell users whether or not they have diabetes, and in order for them to identify any characteristics that put them at risk, they must speak to professionals, which is not always convenient. 
+There are many factors that can effect the development of diabetes, each with unique contribution. Creating a model that simply predicts whether or not one may have diabetes may be problematic. The classification "Yes" or "No" could be missleading, in reference to the accuracy of the classification, and the parameters that influence the classification the most. Popular models tell users whether or not they have diabetes, and in order for them to identify any characteristics that put them at risk, they must speak to professionals, which is not always convenient. 
 
 This webpage has been created to solve that issue. After inputting your data the model does not tell you whether or not you have diabetes. Rather, the webpage tells you how each individual factor affects this outcome, indicating towards potential adjustments one can make in order to lower their risk. 
 
