@@ -3,9 +3,9 @@ A simple model to inform users on the associated risk that their demographic and
 
 ## Description
 
-There are many factors that can effect the development of diabetes, each with unique contribution. Creating a model that simply predicts whether or not one may have diabetes may be problematic. The classification "Yes" or "No" could be missleading, in reference to the accuracy of the classification, and the parameters that influence the classification the most. Popular models tell users whether or not they have diabetes, and in order for them to identify any characteristics that put them at risk, they must speak to professionals, which is not always convenient. 
+There are many factors that can effect the development of diabetes, each with unique contribution. Creating a model that simply predicts whether or not one may have diabetes may be problematic. The classification "Yes" or "No" could be missleading, in reference to the accuracy of the classification, and the parameters that influence the classification itself. Popular models tell users whether or not they have diabetes, and in order for them to identify any characteristics that put them at risk, they must speak to professionals, which is not always convenient. 
 
-This webpage has been created to solve that issue. After inputting your data the model does not tell you whether or not you have diabetes. Rather, the webpage tells you how each individual factor affects this outcome, indicating towards potential adjustments one can make in order to lower their risk. 
+This webpage has been created to solve that issue. After inputting your data the model does not tell you whether or not you have diabetes. Rather, it tells you how each individual factor affects this outcome, indicating towards potential adjustments one can make in order to lower their risk. 
 
 ## How to use it 
 
@@ -15,7 +15,9 @@ We've created an interractive webpage, focusing on the UI to optimise the experi
 
 Using a dataset with 100,000 entries, we used Machine Learning techniques to find all the precise patterns between somebody's data, and whether or not they have diabetes. These Supervised Learning models were used to predict whether or not the user had diabetes. Logistic Regression, Decision Tree Classifier, and Random Forest Classifier each achieved >95% accuracy. However only the Logistic Regression model has the feature we need most, the "weights" feature.
 
-This feature shows the direct influence between an input and the model's output. We used these "weights" to identify precisely how each paramater would affect the development of diabetes. This allowed us to write the logic into JavaScript code, a very simply implementation onto a website. Each form filled from a user, would simply be ran through algorithms created from the fixed list of weights. Meaning we would not have to run the model each time, which would save us, and the user, plenty of resources.
+This feature shows the direct influence between an input and the model's output. We used these "weights" to precisely identify how each paramater would affect the development of diabetes. Although, uploading a machine learning model to a webpage has its caveats; mainly, it would not efficient to run each time a user fills out a form. For that reason, we decided to copy the weight of each feature into a JavaScript array. In consequence, we would not have to use the model directly. 
+
+This allowed us to write the logic into JavaScript code, a simple implementation onto a website. Each form filled from a user, is ran through algorithms using the array of weights to create an interpretable value for the influence of each, individual feature.
 
 ## Installation
 
