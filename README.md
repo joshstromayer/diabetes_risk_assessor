@@ -40,4 +40,4 @@ If you would like to contribute, feel free to 'fork' the repostitory and make al
 Here are some ideas for you to get started: 
 - Use a different dataset, to trainand test the model on different data, possibly with different parameters.
 - Change the styling of the website, make it custom to your liking...
-- Adjust the JavaScript code to change the output to the user. (numerical output, a graph, etc.)
+- Adjust the JavaScript code to change the output to the user (numerical output, a graph, etc.).
