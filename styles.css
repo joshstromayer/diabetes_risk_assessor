@@ -287,3 +287,15 @@ img{
     padding-left: 15px;
     line-height: 20px;
 }
+
+#tool{
+    scroll-margin-top: 25px;
+}
+
+#risks{
+    scroll-margin-top: 25px;
+}
+
+#contact{
+    scroll-margin-top: 25px;
+}
