@@ -188,8 +188,8 @@ img{
 #figure1text{
     position: absolute;
 
-    top: 60px;
-    right: 70px;
+    top: 20px;
+    right: 40px;
 
     font-size: 18px;
     font-family: 'Times New Roman', Times, serif;
@@ -202,8 +202,8 @@ img{
 #figure2text{
     position: absolute;
 
-    top: 60px;
-    right: 70px;
+    top: 20px;
+    right: 40px;
 
     font-size: 18px;
     font-family: 'Times New Roman', Times, serif;
@@ -216,8 +216,8 @@ img{
 #figure3text{
     position: absolute;
 
-    top: 60px;
-    right: 70px;
+    top: 20px;
+    right: 40px;
 
     font-size: 18px;
     font-family: 'Times New Roman', Times, serif;
@@ -230,8 +230,8 @@ img{
 #figure4text{
     position: absolute;
 
-    top: 60px;
-    right: 70px;
+    top: 20px;
+    right: 40px;
 
     font-size: 18px;
     font-family: 'Times New Roman', Times, serif;
@@ -244,8 +244,8 @@ img{
 #figure5text{
     position: absolute;
 
-    top: 60px;
-    right: 70px;
+    top: 20px;
+    right: 40px;
 
     font-size: 18px;
     font-family: 'Times New Roman', Times, serif;
@@ -258,8 +258,8 @@ img{
 #figure6text{
     position: absolute;
 
-    top: 60px;
-    right: 70px;
+    top: 20px;
+    right: 40px;
 
     font-size: 18px;
     font-family: 'Times New Roman', Times, serif;
@@ -286,4 +286,16 @@ img{
     justify-content: center;
     padding-left: 15px;
     line-height: 20px;
+}
+
+#tool{
+    scroll-margin-top: 25px;
+}
+
+#risks{
+    scroll-margin-top: 25px;
+}
+
+#contact{
+    scroll-margin-top: 25px;
 }
