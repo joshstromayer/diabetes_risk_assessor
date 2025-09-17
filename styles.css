@@ -172,13 +172,8 @@ main{
     font-size: 15px;
 }
 
-img{
-    border: solid 1px;
-    
-    display: flex;
-    justify-content: center;
-
-    width: 100%;
+#img1{
+    width: 90%;
 }
 
 #container1{
@@ -188,10 +183,10 @@ img{
 #figure1text{
     position: absolute;
 
-    top: 20px;
-    right: 40px;
+    top: 45px;
+    right: 180px;
 
-    font-size: 18px;
+    font-size: 14px;
     font-family: 'Times New Roman', Times, serif;
 }
 
@@ -202,10 +197,10 @@ img{
 #figure2text{
     position: absolute;
 
-    top: 20px;
-    right: 40px;
+    top: 45px;
+    right: 180px;
 
-    font-size: 18px;
+    font-size: 14px;
     font-family: 'Times New Roman', Times, serif;
 }  
 
@@ -216,10 +211,10 @@ img{
 #figure3text{
     position: absolute;
 
-    top: 20px;
-    right: 40px;
+    top: 45px;
+    right: 180px;
 
-    font-size: 18px;
+    font-size: 14px;
     font-family: 'Times New Roman', Times, serif;
 }  
 
@@ -230,10 +225,10 @@ img{
 #figure4text{
     position: absolute;
 
-    top: 20px;
-    right: 40px;
+    top: 45px;
+    right: 180px;
 
-    font-size: 18px;
+    font-size: 14px;
     font-family: 'Times New Roman', Times, serif;
 }  
 
@@ -244,10 +239,10 @@ img{
 #figure5text{
     position: absolute;
 
-    top: 20px;
-    right: 40px;
+    top: 45px;
+    right: 180px;
 
-    font-size: 18px;
+    font-size: 14px;
     font-family: 'Times New Roman', Times, serif;
 }  
 
@@ -258,10 +253,10 @@ img{
 #figure6text{
     position: absolute;
 
-    top: 20px;
-    right: 40px;
+    top: 45px;
+    right: 180px;
 
-    font-size: 18px;
+    font-size: 14px;
     font-family: 'Times New Roman', Times, serif;
 }
 
@@ -298,4 +293,123 @@ img{
 
 #contact{
     scroll-margin-top: 25px;
+}
+
+
+.textbox{
+    width: 70%;
+}
+
+#img1{
+    width: 420px;
+    height: auto;
+}
+
+#img2{
+    width: 420px;
+    height: auto;
+}
+
+#img3{
+    width: 420px;
+    height: auto;
+}
+
+#img4{
+    width: 420px;
+    height: auto;
+}
+
+#img5{
+    width: 420px;
+    height: auto;
+}
+
+.box{
+    display: flex;
+    direction: row;
+}
+
+
+@media(max-width: 720px){
+    .box{
+        display: block;
+        direction: none;
+    }
+
+    .textbox{
+        width: 100%;
+    }
+
+    #img1{
+        width: 100%;
+    }
+    
+    #img2{
+        width: 100%;
+    }
+
+    #img3{
+        width: 100%;
+    }
+
+    #img4{
+        width: 100%;
+    }
+
+    #img5{
+        width: 100%;
+    }
+
+    #figure1text{
+        top: 37px;
+        right: 150px;
+    }
+
+    #figure2text{
+        top: 37px;
+        right: 150px;
+    }
+
+    #figure3text{
+        top: 37px;
+        right: 150px;
+    }
+
+    #figure4text{
+        top: 37px;
+        right: 150px;
+    }
+
+    #figure5text{
+        top: 37px;
+        right: 150px;
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1440px) {
+    p{
+        color: #555;
+        font-family: Barlow, Helvetica Neue, Helvetica, Roboto, Arial, sans-serif;
+
+        font-size: 20px;
+    }
+
+    .disclaimer{
+        font-size: 15px;
+    }
+
+    .correlation{
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 320px){
+    main{
+        width: 100%;
+    }
+    
+    header{
+        width: 100%;
+    }
 }
