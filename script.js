@@ -27,12 +27,12 @@ function calculateRisk() {
 
     // 1. Age Influence
     let delta = (age - 30) / 30;
-    let ageInfluence = delta * weights[0] * 1000 * 0.5;
+    let ageInfluence = delta * weights[0] * 100 * 0.5;
     ageInfluence = Math.round(ageInfluence * 100) / 100;
     influences[0] = ageInfluence;
 
     // 2. Hypertension
-    let hypertensionInfluence = hypertension ? weights[1] * 1000 * 0.5 : 0;
+    let hypertensionInfluence = hypertension ? weights[1] * 100 * 0.5 : 0;
     hypertensionInfluence = Math.round(hypertensionInfluence * 100) / 100;
     influences[1] = hypertensionInfluence;
 
@@ -53,7 +53,20 @@ function calculateRisk() {
     bmiInfluence = Math.round(bmiInfluence * 100) / 100;
     influences[3] = bmiInfluence;
 
-    // 5. Glucose
+    // 5. HbA1c
+    let hba1cInfluence = 0;
+    if (hba1c > 6.4) {
+        let c = (hba1c - 5.7) / 6.4;
+        hba1cInfluence = weights[4] * c * 1000;
+    } else if (hba1c >= 5.7 && hba1c <= 6.4) {
+        let c = (hba1c - 5.7) / 6.4;
+        hba1cInfluence = weights[4] * c * 0.8 * 1000;
+    }
+
+    hba1cInfluence = Math.round(hba1cInfluence * 100) / 100;
+    influences[4] = hba1cInfluence;
+
+    // 6. Glucose
     let glucoseInfluence = 0;
     if (glucose > 126) {
         let beta = (glucose - 100) / 126;
@@ -68,18 +81,6 @@ function calculateRisk() {
     glucoseInfluence = Math.round(glucoseInfluence * 100) / 100;
     influences[5] = glucoseInfluence;
 
-    // 6. HbA1c
-    let hba1cInfluence = 0;
-    if (hba1c > 6.4) {
-        let c = (hba1c - 5.7) / 6.4;
-        hba1cInfluence = weights[4] * c * 1000;
-    } else if (hba1c >= 5.7 && hba1c <= 6.4) {
-        let c = (hba1c - 5.7) / 6.4;
-        hba1cInfluence = weights[4] * c * 0.8 * 1000;
-    }
-
-    hba1cInfluence = Math.round(hba1cInfluence * 100) / 100;
-    influences[4] = hba1cInfluence;
 
     // Status and Score Calculations
     for (let i = 0; i < influences.length; i++) {
